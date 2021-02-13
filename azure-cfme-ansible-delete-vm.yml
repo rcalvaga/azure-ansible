@@ -9,3 +9,4 @@
         resource_group: "{{ resourcegroup }}"
         name: "{{ vmname }}"
         state: absent
+        remove_on_absent: all
