@@ -9,11 +9,11 @@
         name: "{{ vmname }}"
         vm_size: "{{ vmsize }}"
         admin_username: "{{ username }}"
-        admin_password: "{{ password }}"
+        #admin_password: "{{ password }}"
         ssh_password_enabled: True
-#        ssh_public_keys: 
-#           - path: /home/{{ username }}/.ssh/authorized_keys
-#             key_data: "{{ sshkeys }}" 
+        ssh_public_keys: 
+           - path: /home/{{ username }}/.ssh/authorized_keys
+             key_data: "{{ sshkeys }}" 
         image:
           offer: "{{ offer }}"
           publisher: "{{ publisher }}"
