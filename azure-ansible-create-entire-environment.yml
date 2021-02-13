@@ -21,9 +21,9 @@
         - resourcegroup: Test
         - storageaccount: test13267
         - virtualnetwork: Test
-        - address_prefix: 10.10.0.0/16
+        - address_prefix: 10.0.0.0/16
         - subnet: test-subnet
-        - subnet_prefix: 10.10.0.0/24
+        - subnet_prefix: 10.10.1.0/24
         - publicip: testpublicip01
         - nicname: testnic01
         - vmname: vmtest01
