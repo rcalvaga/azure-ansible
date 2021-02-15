@@ -19,3 +19,8 @@
           publisher: "{{ publisher }}"
           sku: "{{ sku }}"
           version: "{{ version }}"
+      register: vm
+          
+    - name: debug
+      debug:
+        var=vm.azure_vm.tags._own_nic_
