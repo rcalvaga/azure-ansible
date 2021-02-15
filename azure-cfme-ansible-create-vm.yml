@@ -23,4 +23,4 @@
           
     - name: debug
       debug:
-        var=vm.ansible_facts.azure_vm.tags
+        var=vm.ansible_facts.azure_vm.tags._own_nic_
