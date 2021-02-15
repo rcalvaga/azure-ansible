@@ -23,4 +23,4 @@
           
     - name: debug
       debug:
-        var=vm.azure_vm.tags._own_nic_
+        var=vm.azure_vm.tags
