@@ -13,6 +13,6 @@
              protocol: "{{ item.value.protocol }}"
              destination_port_range: "{{ item.value.destination_port_range }}"
              access: "{{ item.value.access }}"
-             priority: "{{item.value.priority}}"
+             priority: "{{ item.value.priority }}"
              direction: "{{ item.value.direction }}"
         loop: "{{ lookup('dict', rules) }}"
