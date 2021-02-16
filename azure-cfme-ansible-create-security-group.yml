@@ -15,4 +15,4 @@
              access: "{{ item.value.access }}"
              priority: "{{item.value.priority}}"
              direction: "{{ item.value.direction }}"
-        with_dict: "{{ rules }}"
+        loop: "{{ lookup('dict', rules) }}"
