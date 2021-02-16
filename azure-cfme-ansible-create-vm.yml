@@ -19,11 +19,11 @@
           publisher: "{{ publisher }}"
           sku: "{{ sku }}"
           version: "{{ version }}"
-      register: vm
+      register: azurevm
            
     - name: Set Vars Status
       set_stats:
         data:
-          sgname: "{{ vm.ansible_facts.azure_vm.tags._own_nsg_}}"
+          sgname: "{{ azurevm.ansible_facts.azure_vm.tags._own_nsg_}}"
           host: "{{ azurevm.ansible_facts.azure_vm.properties.networkProfile.networkInterfaces[0].properties.ipConfigurations[0].properties.publicIPAddress.properties.ipAddress }}"
 
