@@ -13,6 +13,9 @@
 - name: Configure Hosts post-creation
   hosts: azure_instances_temp
   gather_facts: True
+  remote_user: "{{ username }}"
+  become: yes
+  become_method: sudo
   tasks:
   - name: Install Cockpit Console
     yum:
