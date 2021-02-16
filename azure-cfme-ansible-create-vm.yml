@@ -20,7 +20,10 @@
           sku: "{{ sku }}"
           version: "{{ version }}"
       register: vm
-          
-    - name: debug
-      debug:
-        var=vm.ansible_facts.azure_vm.tags._own_nic_
+           
+    - name: Set Vars Status
+      set_stats:
+        data:
+          sgname: "{{ vm.ansible_facts.azure_vm.tags._own_nsg_}}"
+          host: "{{ azurevm.ansible_facts.azure_vm.properties.networkProfile.networkInterfaces[0].properties.ipConfigurations[0].properties.publicIPAddress.properties.ipAddress }}"
+
