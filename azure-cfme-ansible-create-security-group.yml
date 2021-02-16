@@ -7,7 +7,7 @@
       azure_rm_securitygroup:
         resource_group: "{{ resourcegroup }}"
         name: "{{ sgname }}"
-        #purge_rules: yes
+        purge_rules: yes
         rules:
            - name: "{{ item.key }}"
              protocol: "{{ item.value.protocol }}"
