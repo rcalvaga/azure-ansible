@@ -1,0 +1,21 @@
+---
+- name: Create an AKS Cluster
+  hosts: all
+  connection: local
+  tasks:
+  - name: Create a managed Azure Container Services (AKS) instance
+    azure_rm_aks:
+      name: "{{ akscluster }}"
+      location: "{{ location }}"
+      resource_group: "{{ resourcegroup }}"
+      dns_prefix: "{{ dns_prefix }}"
+      kubernetes_version: "{{ kubernetes_version }}"
+      linux_profile:
+        admin_username: "{{ admin_username }}"
+        ssh_key: "{{ sshkeys }}"
+      agent_pool_profiles:
+      - name: "{{ poolname }}"
+          count: "{{ poolcount }}"
+          vm_size: "{{ vmsize }}"
+      tags:
+        Environment: "{{ environment }}"
