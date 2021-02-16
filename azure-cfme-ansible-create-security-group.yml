@@ -10,9 +10,9 @@
         purge_rules: yes
         rules:
            - name: "{{ item.key }}"
-             protocol: "{{ item.protocol }}"
-             destination_port_range: "{{ item.destination_port_range }}"
-             access: "{{ item.access }}"
-             priority: "{{item.priority}}"
-             direction: "{{ item.direction }}"
+             protocol: "{{ item.value.protocol }}"
+             destination_port_range: "{{ item.value.destination_port_range }}"
+             access: "{{ item.value.access }}"
+             priority: "{{item.value.priority}}"
+             direction: "{{ item.value.direction }}"
         with_dict: "{{ rules }}"
