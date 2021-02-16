@@ -1,0 +1,50 @@
+- name: Configure Services on a Linux Machine in Azure
+  hosts: all
+  connection: local
+  tasks:
+    - name: Save host data within a Group
+      add_host:
+        hostname: "{{ host }}"
+        groupname: azure_instances_temp
+
+    - name: Wait for SSH to come up
+      wait_for: host={{ host }} port=22 delay=10 timeout=60
+      
+- name: Configure Hosts post-creation
+  hosts: azure_instances_temp
+  gather_facts: True
+  remote_user: centos
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: Install Cockpit Console
+    yum:
+      name: "{{ item }}"
+      state: latest
+    with_items:
+    - cockpit 
+    - cockpit-dashboard
+
+  - name: Start Cockpit Service
+    service:
+      name: cockpit.socket
+      state: started
+      enabled: yes
+    
+  - name: install Apache
+    yum: 
+      name: httpd
+      state: latest
+
+  - name: start Apache Service
+    service:
+      name: httpd
+      state: started
+      enabled: yes
+
+  - name: create Test user
+    user:
+     name: test
+     comment: "Test User created by Ansible"
+     password: $1$ctRQ8kmb$PMF.2YAjQrdjiDGFuE4uw0
+     group: wheel
