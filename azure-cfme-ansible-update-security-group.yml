@@ -1,0 +1,18 @@
+
+- name: Update a Security Group in Azure
+  hosts: all
+  connection: local
+  tasks:
+  
+    - name: Update a Security Group
+      azure_rm_securitygroup:
+        resource_group: "{{ resourcegroup }}"
+        name: "{{ sgname }}"
+        rules:
+           - name: "{{ item.key }}"
+             protocol: "{{ item.value.protocol }}"
+             destination_port_range: "{{ item.value.destination_port_range }}"
+             access: "{{ item.value.access }}"
+             priority: "{{ item.value.priority }}"
+             direction: "{{ item.value.direction }}"
+      with_dict: "{{ rules }}"
