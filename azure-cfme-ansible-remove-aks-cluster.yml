@@ -1,0 +1,10 @@
+---
+- name: Remove an AKS Cluster
+  hosts: all
+  connection: local
+  tasks:
+  - name: Remove a managed Azure Container Services (AKS) instance
+    azure_rm_aks:
+      name: "{{ akscluster }}"
+      resource_group: "{{ resourcegroup }}"
+      state: absent
