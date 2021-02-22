@@ -7,4 +7,7 @@
     azure_rm_aks:
       name: "{{ akscluster }}"
       resource_group: "{{ resourcegroup }}"
+      service_principal:
+        client_id: "{{ client_id }}"
+        client_secret: "{{ client_secret }}"
       state: absent
