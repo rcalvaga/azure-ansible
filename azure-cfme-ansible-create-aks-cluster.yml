@@ -22,3 +22,8 @@
           vm_size: "{{ vmsize }}"
       tags:
         Environment: "{{ env }}"
+    register: aks
+    
+  - name: Obtain AKS Kube_Config file
+    debug: 
+      msg: "{{ aks.kube_config.json | list }}"
