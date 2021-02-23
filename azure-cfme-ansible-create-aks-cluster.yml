@@ -21,4 +21,4 @@
           count: "{{ poolcount }}"
           vm_size: "{{ vmsize }}"
       tags:
-        Environment: "{{ environment }}"
+        Environment: "{{ env }}"
