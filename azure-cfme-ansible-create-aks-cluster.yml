@@ -27,6 +27,6 @@
   - name: Obtain AKS Kube_Config file
     copy:
       content: "{{ aks.kube_config| to_json }}"
-      dest: "/tmp/aks.json"
+      dest: "/var/lib/awx/aks.json"
     #debug: 
       #msg: "{{ aks.kube_config | to_json(ensure_ascii=False) }}"
