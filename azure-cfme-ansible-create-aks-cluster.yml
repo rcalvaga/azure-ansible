@@ -14,8 +14,8 @@
         admin_username: "{{ admin_username }}"
         ssh_key: "{{ sshkeys }}"
       service_principal:
-        client_id: "{{ AZURE_CLIENT_ID }}"
-        client_secret: "{{ AZURE_SECRET }}"
+        client_id: "{{ client_id }}"
+        client_secret: "{{ client_secret }}"
       agent_pool_profiles:
         - name: "{{ poolname }}"
           count: "{{ poolcount }}"
