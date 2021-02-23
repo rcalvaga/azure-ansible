@@ -25,5 +25,8 @@
     register: aks
     
   - name: Obtain AKS Kube_Config file
-    debug: 
-      msg: "{{ aks.kube_config | to_json(ensure_ascii=False) }}"
+    copy:
+      content: "{{ aks.kube_config| to_json }}"
+      dest: "/tmp/aks.json"
+    #debug: 
+      #msg: "{{ aks.kube_config | to_json(ensure_ascii=False) }}"
