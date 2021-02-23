@@ -26,4 +26,4 @@
     
   - name: Obtain AKS Kube_Config file
     debug: 
-      msg: "{{ aks.kube_config }}"
+      msg: "{{ aks.kube_config | to_json }}"
