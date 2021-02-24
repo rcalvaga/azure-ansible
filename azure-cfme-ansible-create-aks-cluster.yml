@@ -29,5 +29,5 @@
      # content: "{{ aks.kube_config | from_yaml }}"
       #dest: "/tmp/aks.json"
     #delegate_to: localhost
-    debug: 
-      msg: "{{ aks.kube_config | from_yaml | to_nice_yaml }}"
+    set_stats: 
+      data: "{{ aks.kube_config }}"
