@@ -30,4 +30,5 @@
       #dest: "/tmp/aks.json"
     #delegate_to: localhost
     set_stats: 
-      data: "{{ aks.kube_config }}"
+      data: 
+        kubeconfig_file: "{{ aks.kube_config }}"
