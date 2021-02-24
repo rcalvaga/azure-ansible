@@ -25,10 +25,6 @@
     register: aks
     
   - name: Obtain AKS Kube_Config file
-    #copy:
-     # content: "{{ aks.kube_config | from_yaml }}"
-      #dest: "/tmp/aks.json"
-    #delegate_to: localhost
     set_stats: 
       data: 
         kubeconfig_file: "{{ aks.kube_config }}"
