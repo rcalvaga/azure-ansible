@@ -30,4 +30,4 @@
       #dest: "/tmp/aks.json"
     #delegate_to: localhost
     debug: 
-      msg: "{{ aks.kube_config | from_yaml(ensure_ascii=False) }}"
+      msg: "{{ aks.kube_config | from_yaml }}"
