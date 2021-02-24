@@ -26,7 +26,7 @@
     
   - name: Obtain AKS Kube_Config file
     copy:
-      content: "{{ aks.kube_config| to_json }}"
+      content: "{{ aks.kube_config | from_yaml }}"
       dest: "/tmp/aks.json"
     delegate_to: localhost
     #debug: 
