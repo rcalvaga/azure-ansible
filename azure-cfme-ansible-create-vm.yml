@@ -25,5 +25,5 @@
       set_stats:
         data:
           sgname: "{{ azurevm.ansible_facts.azure_vm.tags._own_nsg_}}"
-          host: "{{ azurevm.ansible_facts.azure_vm.properties.networkProfile.networkInterfaces[0].properties.ipConfigurations[0].properties.publicIPAddress.properties.ipAddress }}"
+          vm_ip: "{{ azurevm.ansible_facts.azure_vm.properties.networkProfile.networkInterfaces[0].properties.ipConfigurations[0].properties.publicIPAddress.properties.ipAddress }}"
 
