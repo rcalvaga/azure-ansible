@@ -122,15 +122,15 @@
       debug: var=azurevm.ansible_facts.azure_vm.properties.networkProfile.networkInterfaces[0].properties.ipConfigurations[0].properties.publicIPAddress.properties.ipAddress
 
     - name: Setting AzureVM Public IP
-      set_fact: host={{ azurevm.ansible_facts.azure_vm.properties.networkProfile.networkInterfaces[0].properties.ipConfigurations[0].properties.publicIPAddress.properties.ipAddress }}
+      set_fact: vm_ip={{ azurevm.ansible_facts.azure_vm.properties.networkProfile.networkInterfaces[0].properties.ipConfigurations[0].properties.publicIPAddress.properties.ipAddress }}
 
     - name: Save host data within a Group
       add_host:
-        hostname: "{{ host }}"
+        hostname: "{{ vm_ip }}"
         groupname: azure_instances_temp
 
     - name: Wait for SSH to come up
-      wait_for: host={{ host }} port=22 delay=10 timeout=60
+      wait_for: host={{ vm_ip }} port=22 delay=10 timeout=60
 
 - name: Configure Hosts post-creation
   hosts: azure_instances_temp
