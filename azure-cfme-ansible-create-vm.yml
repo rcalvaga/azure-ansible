@@ -4,16 +4,21 @@
   tasks:
   
     - name: Creating virtual machine
-      azure_rm_virtualmachine:
+      azure.azcollection.azure_rm_virtualmachine:
         resource_group: "{{ resourcegroup }}"
         name: "{{ vmname }}"
+        managed_disk_type: "{{ disk_type }}"
         vm_size: "{{ vmsize }}"
         admin_username: "{{ username }}"
-        #admin_password: "{{ password }}"
         ssh_password_enabled: False
         ssh_public_keys: 
            - path: /home/{{ username }}/.ssh/authorized_keys
              key_data: "{{ sshkeys }}" 
+        tags:
+          "name": "{{ rhel_vm_name }}"
+          "demo": "true"
+          "os": "linux"
+          "username": "{{ rhel_admin_user }}"
         image:
           offer: "{{ offer }}"
           publisher: "{{ publisher }}"
