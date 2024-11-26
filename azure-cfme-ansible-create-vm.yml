@@ -15,10 +15,10 @@
            - path: /home/{{ username }}/.ssh/authorized_keys
              key_data: "{{ sshkeys }}" 
         tags:
-          "name": "{{ rhel_vm_name }}"
+          "name": "{{ vmname }}"
           "demo": "true"
           "os": "linux"
-          "username": "{{ rhel_admin_user }}"
+          "username": "{{ username }}"
         image:
           offer: "{{ offer }}"
           publisher: "{{ publisher }}"
