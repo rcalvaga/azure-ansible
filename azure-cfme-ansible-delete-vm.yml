@@ -5,7 +5,7 @@
   tasks:
   
     - name: Deleting virtual machine
-      azure_rm_virtualmachine:
+      azure.azcollection.azure_rm_virtualmachine::
         resource_group: "{{ resourcegroup }}"
         name: "{{ vmname }}"
         state: absent
