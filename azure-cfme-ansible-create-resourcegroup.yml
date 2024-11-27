@@ -3,25 +3,19 @@
   connection: local
   tasks:
     - name: Create a resource group
-      azure_rm_resourcegroup:
+      azure.azcollection.azure_rm_resourcegroup:
         name: "{{ resourcegroup }}"
         location: "{{ location }}"
         state: present
 
-    - name: Create storage account
-      azure_rm_storageaccount:
-        resource_group: "{{ resourcegroup }}"
-        name: "{{ storageaccount }}"
-        account_type: Standard_LRS
-
     - name: Create virtual network
-      azure_rm_virtualnetwork:
+      azure.azcollection.azure_rm_virtualnetwork:
         resource_group: "{{ resourcegroup }}"
         name: "{{ virtualnetwork }}"
         address_prefixes: "{{ address_prefix }}"
 
     - name: Add subnet
-      azure_rm_subnet:
+      azure.azcollection.azure_rm_subnet:
         resource_group: "{{ resourcegroup }}"
         name: "{{ subnet }}"
         address_prefix: "{{ subnet_prefix }}"
